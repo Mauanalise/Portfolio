@@ -75,7 +75,7 @@ else:
         st.title("Logout")
         if st.button("Confirmar Logout"):
             # Limpar cookies e estado da sessão
-            controller.delete(f'{cookie_name}_username')
-            controller.delete(f'{cookie_name}_password')
+            controller.set(f'{cookie_name}_username', '', max_age=-1)
+            controller.set(f'{cookie_name}_password', '', max_age=-1)
             ss.clear()  # Limpar o estado da sessão
             st.experimental_rerun()
