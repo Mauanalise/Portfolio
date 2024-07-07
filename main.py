@@ -74,8 +74,6 @@ else:
     elif page == "Logout":
         st.title("Logout")
         if st.button("Confirmar Logout"):
-            # Limpar cookies e estado da sessão
-            controller.set(f'{cookie_name}_username', '', max_age=-1)
-            controller.set(f'{cookie_name}_password', '', max_age=-1)
-            ss.clear()  # Limpar o estado da sessão
+            # Redefinir o estado da sessão
+            ss.login_ok = False
             st.experimental_rerun()
